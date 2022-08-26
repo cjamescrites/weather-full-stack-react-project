@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const [weather, setWeather] = useState([]);
-  const [weatherHistory, setWeatherHistory] = useState([]);
+  // const [cityname, setCityName] = useState();
+  const [weather, setWeather] = useState();
+  const [weatherHistory, setWeatherHistory] = useState();
   
-  const getWeatehr = () => {
-    fetch ("")
+  const cityname = "Houston";
+
+  const getWeather = () => {
+    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=937ce5cf3b3a4bf3549a28703f7531b7`)
     .then((response) => {
       return response.json()
     })
@@ -30,10 +33,12 @@ function App() {
     }))
   };
 
+  useEffect(getWeather, []);
   useEffect(getWeatherHistory, []);
-  
+
   return (
     <div>
+      <h1>hi</h1>
     </div>
   );
 }

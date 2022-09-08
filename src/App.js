@@ -4,8 +4,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import CurrentWeather from "./containers/CurrentWeather/CurrentWeather";
 import PreviousWeather from "./containers/PreviousWeather/PreviousWeather";
-import PostWeather from "./components/PostWeather/PostWeather";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary"
+
 
 function App() {
 
@@ -83,9 +82,6 @@ function App() {
       <div className="currentContainer">
         <h2>Current Weather</h2>
         <CurrentWeather weather={weather} cityname={cityname} setCityName={setCityName} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-        {/* <ErrorBoundary> */}
-        {/* {weather && <PostWeather weather={weather} />} */}
-        {/* </ErrorBoundary> */}
       </div>
       <div className="previousContainer">
         <h2>Previous Weather Searches</h2>

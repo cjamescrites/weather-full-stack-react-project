@@ -21,12 +21,6 @@ const PreviousWeather = (props) => {
     return (
         <div className="previousWeatherContainer">
             {mappedWeatherHistory}
-            {/* {weatherHistory && <WeatherCard 
-            name={weatherHistory[0].name} 
-            temp={weatherHistory[0].temp}
-            temp_max={weatherHistory[0].temp_max} 
-            temp_min={weatherHistory[0].temp_min} 
-            humidity={weatherHistory[0].humidity}/>} */}
         </div>
     )
 }

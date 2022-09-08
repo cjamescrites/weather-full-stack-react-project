@@ -1,10 +1,10 @@
 * {
-  background-color: grey;
+  background-color: black;
   color: white;
 }
 
 .mainContainer {
-  color: black;
+  color: grey;
 }
 
 h2 {
@@ -24,7 +24,7 @@ h2 {
 }
 
 .weatherCard {
-  border: black 1px solid;
+  border: grey 1px solid;
   padding: 10px;
 }
 

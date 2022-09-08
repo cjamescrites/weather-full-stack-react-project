@@ -1,14 +1,15 @@
-
 const PostWeather = (props) => {
 
-    const { weather } = props;
+  const { weather } = props;
 
-    const weatherJSON = {
+  const weatherJSON = {
      name: weather.name,
      temp: weather.temp,
      temp_max: weather.temp_max,
      temp_min: weather.temp_min,
      humidity: weather.humidity
+  
+
  } 
  fetch('http://localhost:3024/', {
    method: 'POST',

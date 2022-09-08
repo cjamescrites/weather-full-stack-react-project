@@ -10,7 +10,7 @@ const PostWeather = (props) => {
      temp_min: weather.temp_min,
      humidity: weather.humidity
  } 
- fetch('http://localhost:3024/addweather', {
+ fetch('http://localhost:3024/', {
    method: 'POST',
    headers: {
      'Accept': 'application/json',

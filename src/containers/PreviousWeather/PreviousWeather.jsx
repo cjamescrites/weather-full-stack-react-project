@@ -19,7 +19,7 @@ const PreviousWeather = (props) => {
     console.log(mappedWeatherHistory);
     
     return (
-        <div className="weatherContainer">
+        <div className="previousWeatherContainer">
             {mappedWeatherHistory}
             {/* {weatherHistory && <WeatherCard 
             name={weatherHistory[0].name} 

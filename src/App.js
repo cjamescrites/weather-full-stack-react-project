@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     if (cityname){
-      postWeather
+      PostWeather
      }
   }, [weather]);
   

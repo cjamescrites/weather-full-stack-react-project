@@ -1,9 +1,22 @@
+* {
+  background-color: grey;
+  color: white;
+}
+
 .mainContainer {
   color: black;
 }
 
+h2 {
+  text-align: center;
+}
+
 .currentContainer {
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .previousContainer {
@@ -12,13 +25,24 @@
 
 .weatherCard {
   border: black 1px solid;
+  padding: 10px;
 }
 
-.weatherContainer {
+.currentWeatherContainer {
+  display: grid;
+  width: 80%;
+  padding: 10px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  justify-items: center;
+}
+
+.previousWeatherContainer {
   display: grid;
   width: 80%;
   padding: 10px;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
   justify-items: center;
+
 }

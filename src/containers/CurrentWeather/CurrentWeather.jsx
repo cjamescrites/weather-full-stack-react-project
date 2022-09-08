@@ -19,7 +19,7 @@ const CurrentWeather = (props) => {
           <>
             <SearchBar handleInput={handleInput} handleClick={handleClick} searchTerm={searchTerm} setCityName={setCityName}/>
           </>
-          <div className="weatherContainer">
+          <div className="currentWeatherContainer">
             {weather && <WeatherCard 
             name={weather.name} 
             temp={weather.main.temp}

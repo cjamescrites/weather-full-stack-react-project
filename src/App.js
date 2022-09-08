@@ -1,23 +1,26 @@
+// need to post from react to API
+
 import './App.css';
 import { useState, useEffect } from 'react';
+import CurrentWeather from "./containers/CurrentWeather/CurrentWeather";
+import PreviousWeather from "./containers/PreviousWeather/PreviousWeather";
+import PostWeather from "./components/PostWeather/PostWeather";
 
 function App() {
 
-  // const [cityname, setCityName] = useState();
+
   const [weather, setWeather] = useState();
-  const [weatherHistory, setWeatherHistory] = useState();
-  
-  const cityname = "Houston";
+  const [weatherHistory, setWeatherHistory] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [cityname, setCityName] = useState("");
 
   const getWeather = () => {
-    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=937ce5cf3b3a4bf3549a28703f7531b7`)
+    fetch (`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=937ce5cf3b3a4bf3549a28703f7531b7&units=imperial`)
     .then((response) => {
       return response.json()
     })
     .then((data => {
-      const weatherDataObj = data;
-      setWeather(weatherDataObj);
-      console.log(weatherDataObj);
+      setWeather(data);
     }))
   };
 
@@ -27,18 +30,38 @@ function App() {
       return response.json()
     })
     .then((data => {
-      const weatherHistoryDataObj = data;
-      setWeatherHistory(weatherHistoryDataObj);
-      console.log(weatherHistoryDataObj);
+      setWeatherHistory(data);
     }))
   };
 
-  useEffect(getWeather, []);
-  useEffect(getWeatherHistory, []);
+  useEffect(() => {
+    if (cityname) {
+      getWeather();
+    }
+  }, [cityname]);
+
+  useEffect(() => {
+    if (cityname){
+      postWeather
+     }
+  }, [weather]);
+  
+  useEffect(getWeatherHistory, [cityname]);
+
+  console.log(weather);
+  
 
   return (
-    <div>
-      <h1>hi</h1>
+    <div className="mainContainer">
+      <div className="currentContainer">
+        <h2>Current Weather</h2>
+        <CurrentWeather weather={weather} cityname={cityname} setCityName={setCityName} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+        {weather && <PostWeather weather={weather} />}
+      </div>
+      <div className="previousContainer">
+        <h2>Previous Weather Searches</h2>
+        <PreviousWeather weatherHistory={weatherHistory}/>
+      </div>
     </div>
   );
 }
